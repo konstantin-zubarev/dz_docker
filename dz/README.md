@@ -2,13 +2,13 @@
 
 Цель:
 
-1. Создайте свой кастомный образ nginx на базе alpine. После запуска nginx должен отдавать кастомную страницу (достаточно изменить дефолтную страницу nginx)
+1. Создайть свой кастомный образ nginx на базе alpine. После запуска nginx должен отдавать кастомную страницу (достаточно изменить дефолтную страницу nginx)
 
 Создадим новый образ, из Dockerfile
 ```
 # docker build -t konstantinzubarev/my-nginx:v1.0 .
 ```
-Проверим создался ли образ.
+Проверим, выведим список всех образов на хост машине.
 
 ```
 # docker images
@@ -38,10 +38,22 @@ a80f421cbf60        konstantinzubarev/my-nginx:v1.0   "nginx -g 'daemon of…"  
 ```
 # docker push konstantinzubarev/my-nginx:v1.0
 ```
-ссылка на Docker Hub: <https://hub.docker.com/repository/docker/konstantinzubarev/my-nginx>
+Ссылка на Docker Hub: <https://hub.docker.com/repository/docker/konstantinzubarev/my-nginx>
 
-Для проверки ДЗ, достаточно выполнить
+Для проверки ДЗ, выполним
 
 ```
 # docker run -d -p 80:80 --name my-nginx konstantinzubarev/my-nginx:v1.0
 ```
+Передти в браузер на следующие страницы `localhost`
+
+###Вопросы###
+1. Определите разницу между контейнером и образом?
+2. Можно ли в контейнере собрать ядро?
+
+###Ответы###
+1. Образ - это метаинформация, а контейнер - это образ который запущен/остановлен.
+2. В контейнере собрать ядро, можно, из программы и исходников.
+
+Ссылка на дополнительную информацию
+- [Alpine + Nginx](https://wiki.alpinelinux.org/wiki/Nginx)
